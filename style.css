@@ -1,3 +1,8 @@
+/* =========================================
+LIVE PLANT MAINTENANCE PORTAL
+NATURAL BOTANICAL THEME
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,215 +10,619 @@
   }
 
 body {
-font-family: Arial, sans-serif;
-background: #f4f8f3;
-color: #26382a;
+font-family: "Trebuchet MS", Arial, sans-serif;
+
+background:
+    linear-gradient(
+        135deg,
+        #f8f5ec,
+        #eef6ed
+    );
+
+color: #304536;
+
+min-height: 100vh;
+
 }
 
-/* HEADER */
+/* =========================================
+HEADER
+========================================= */
 
 header {
-background: #2f6b3f;
-color: white;
+background: rgba(255, 255, 255, 0.95);
 
 padding: 20px 8%;
 
 display: flex;
+
 justify-content: space-between;
+
 align-items: center;
+
+border-bottom: 1px solid #dce8d8;
+
+box-shadow: 0 3px 15px rgba(65, 92, 65, 0.08);
+
+position: sticky;
+
+top: 0;
+
+z-index: 100;
 
 }
 
 .logo {
-font-size: 24px;
+font-size: 25px;
+
 font-weight: bold;
+
+color: #386641;
+
+letter-spacing: 0.5px;
+
 }
 
 nav a {
-color: white;
+color: #49624d;
+
 text-decoration: none;
 
-margin-left: 20px;
+margin-left: 22px;
+
 font-size: 15px;
+
+font-weight: bold;
+
+transition: 0.3s;
 
 }
 
 nav a:hover {
-text-decoration: underline;
+color: #c46b7b;
 }
 
-/* HERO */
+/* =========================================
+HERO
+========================================= */
 
 .hero {
-min-height: 430px;
+min-height: 470px;
 
-padding: 70px 8%;
+padding: 80px 8%;
 
 display: flex;
+
 align-items: center;
+
 justify-content: space-between;
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+.hero::before {
+content: "🌸";
+
+position: absolute;
+
+top: 35px;
+
+right: 12%;
+
+font-size: 35px;
+
+opacity: 0.7;
+
+}
+
+.hero::after {
+content: "🌿";
+
+position: absolute;
+
+bottom: 20px;
+
+left: 5%;
+
+font-size: 45px;
+
+opacity: 0.5;
 
 }
 
 .hero-text {
-max-width: 600px;
+max-width: 650px;
+
+z-index: 2;
+
 }
 
 .hero h1 {
-font-size: 48px;
-margin-bottom: 20px;
+font-family: Georgia, serif;
+
+font-size: 50px;
+
+line-height: 1.15;
+
+color: #315c3b;
+
+margin-bottom: 22px;
+
+}
+
+.hero h1::before {
+content: "❀ ";
+
+color: #c97989;
+
 }
 
 .hero p {
 font-size: 18px;
-line-height: 1.7;
+
+line-height: 1.8;
+
+color: #607263;
 
 margin-bottom: 30px;
 
 }
 
 .hero-image {
-font-size: 160px;
+font-size: 170px;
+
+filter: drop-shadow(
+    0 10px 15px rgba(50, 90, 55, 0.15)
+);
+
+z-index: 2;
+
 }
 
-/* BUTTON */
+/* =========================================
+BUTTON
+========================================= */
 
 .button {
 display: inline-block;
 
-background: #2f6b3f;
+background: #5b875f;
+
 color: white;
 
-padding: 14px 25px;
+padding: 14px 28px;
 
-border-radius: 8px;
+border-radius: 30px;
 
 text-decoration: none;
+
+font-weight: bold;
+
+box-shadow:
+    0 5px 12px rgba(65, 100, 65, 0.18);
+
+transition: 0.3s;
 
 }
 
 .button:hover {
-background: #245430;
+background: #c46b7b;
+
+transform: translateY(-2px);
+
 }
 
-/* DASHBOARD */
+/* =========================================
+DASHBOARD
+========================================= */
 
 .dashboard {
-padding: 60px 8%;
+padding: 65px 8%;
 }
 
 .dashboard h2,
 .features h2 {
+font-family: Georgia, serif;
+
 text-align: center;
-margin-bottom: 35px;
+
+font-size: 32px;
+
+color: #315c3b;
+
+margin-bottom: 38px;
+
 }
+
+.dashboard h2::after,
+.features h2::after {
+content: " ❀";
+
+color: #c97989;
+
+}
+
+/* =========================================
+STATISTICS CARDS
+========================================= */
 
 .cards {
 display: grid;
 
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns:
+    repeat(4, 1fr);
 
-gap: 20px;
+gap: 22px;
 
 }
 
 .card {
-background: white;
+background: rgba(255, 255, 255, 0.9);
 
-padding: 30px;
+padding: 30px 20px;
 
 text-align: center;
 
-border-radius: 12px;
+border-radius: 22px;
 
-box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+border: 1px solid #e1ebdc;
+
+box-shadow:
+    0 7px 20px rgba(70, 95, 70, 0.08);
+
+transition: 0.3s;
+
+position: relative;
+
+}
+
+.card::before {
+content: "🌿";
+
+position: absolute;
+
+top: 10px;
+
+right: 15px;
+
+font-size: 18px;
+
+opacity: 0.4;
+
+}
+
+.card:hover {
+transform: translateY(-5px);
+
+box-shadow:
+    0 12px 25px rgba(70, 95, 70, 0.13);
 
 }
 
 .card span {
-font-size: 35px;
+font-size: 38px;
 }
 
 .card h3 {
-font-size: 30px;
+font-family: Georgia, serif;
+
+font-size: 32px;
+
+color: #4d7654;
 
 margin: 10px;
 
 }
 
-/* FEATURES */
+.card p {
+color: #718073;
+
+font-size: 14px;
+
+}
+
+/* =========================================
+FEATURES
+========================================= */
 
 .features {
-padding: 60px 8%;
+padding: 65px 8%;
 }
 
 .feature-grid {
 display: grid;
 
-grid-template-columns: repeat(2, 1fr);
+grid-template-columns:
+    repeat(2, 1fr);
 
 gap: 25px;
 
 }
 
 .feature {
-background: white;
+background:
+rgba(255, 255, 255, 0.92);
 
 padding: 30px;
 
-border-radius: 12px;
+border-radius: 22px;
 
-box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+border-left: 5px solid #8caf83;
+
+box-shadow:
+    0 7px 20px rgba(70, 95, 70, 0.07);
+
+position: relative;
+
+transition: 0.3s;
+
+}
+
+.feature::after {
+content: "❀";
+
+position: absolute;
+
+right: 22px;
+
+top: 18px;
+
+color: #d58a98;
+
+font-size: 22px;
+
+opacity: 0.65;
+
+}
+
+.feature:hover {
+transform: translateY(-4px);
+
+border-left-color: #c97989;
 
 }
 
 .feature h3 {
+color: #416b48;
+
 margin-bottom: 12px;
+
+font-family: Georgia, serif;
+
 }
 
 .feature p {
-line-height: 1.6;
+line-height: 1.7;
+
+color: #69766b;
+
 }
 
-/* TIP */
+/* =========================================
+PLANT FORM
+========================================= */
 
-.tips {
-margin: 20px 8% 60px;
+.form-section {
+padding: 70px 8%;
 
-padding: 30px;
+min-height: 650px;
 
-background: white;
+display: flex;
 
-border-radius: 12px;
+justify-content: center;
+
+align-items: center;
+
+}
+
+.form-container {
+background:
+rgba(255, 255, 255, 0.96);
+
+width: 100%;
+
+max-width: 620px;
+
+padding: 45px;
+
+border-radius: 28px;
+
+border: 1px solid #dfe9da;
+
+box-shadow:
+    0 15px 35px rgba(70, 95, 70, 0.1);
+
+position: relative;
+
+}
+
+.form-container::before {
+content: "🌿  ❀  🌿";
+
+display: block;
 
 text-align: center;
 
-box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+font-size: 24px;
+
+margin-bottom: 15px;
+
+color: #6f916f;
+
+}
+
+.form-container h2 {
+text-align: center;
+
+font-family: Georgia, serif;
+
+color: #315c3b;
+
+margin-bottom: 10px;
+
+}
+
+.form-description {
+text-align: center;
+
+color: #7a857c;
+
+margin-bottom: 30px;
+
+font-style: italic;
+
+}
+
+.form-container label {
+display: block;
+
+margin-top: 18px;
+
+margin-bottom: 7px;
+
+color: #46614b;
+
+font-weight: bold;
+
+}
+
+.form-container input,
+.form-container select {
+width: 100%;
+
+padding: 14px;
+
+border: 1px solid #d6e1d1;
+
+background: #fafcf8;
+
+border-radius: 12px;
+
+font-size: 15px;
+
+color: #405444;
+
+transition: 0.3s;
+
+}
+
+.form-container input:focus,
+.form-container select:focus {
+outline: none;
+
+border-color: #7fa67d;
+
+box-shadow:
+    0 0 0 3px rgba(127, 166, 125, 0.12);
+
+}
+
+.submit-button {
+width: 100%;
+
+margin-top: 30px;
+
+padding: 15px;
+
+border: none;
+
+border-radius: 30px;
+
+background: #5b875f;
+
+color: white;
+
+font-size: 16px;
+
+font-weight: bold;
+
+cursor: pointer;
+
+transition: 0.3s;
+
+}
+
+.submit-button:hover {
+background: #c46b7b;
+
+transform: translateY(-2px);
+
+}
+
+/* =========================================
+PLANT CARE TIP
+========================================= */
+
+.tips {
+margin: 20px 8% 65px;
+
+padding: 35px;
+
+background:
+    linear-gradient(
+        135deg,
+        #fffdf5,
+        #f3f8ef
+    );
+
+border-radius: 25px;
+
+border: 1px solid #e3eadc;
+
+text-align: center;
+
+box-shadow:
+    0 7px 20px rgba(70, 95, 70, 0.07);
 
 }
 
 .tips h2 {
+font-family: Georgia, serif;
+
+color: #4a704e;
+
 margin-bottom: 15px;
+
 }
 
 .tips p {
-line-height: 1.6;
+line-height: 1.7;
+
+color: #687469;
+
 }
 
-/* FOOTER */
+/* =========================================
+FOOTER
+========================================= */
 
 footer {
-background: #2f6b3f;
+background: #355c3c;
 
-color: white;
+color: #edf4ea;
 
 text-align: center;
 
-padding: 20px;
+padding: 25px;
+
+margin-top: 30px;
 
 }
 
-/* MOBILE */
+footer p::before {
+content: "🌿 ";
+}
+
+footer p::after {
+content: " 🌸";
+}
+
+/* =========================================
+MOBILE
+========================================= */
 
 @media (max-width: 768px) {
 
@@ -235,14 +644,16 @@ nav a {
     text-align: center;
 
     gap: 30px;
+
+    padding-top: 60px;
 }
 
 .hero h1 {
-    font-size: 35px;
+    font-size: 38px;
 }
 
 .hero-image {
-    font-size: 100px;
+    font-size: 110px;
 }
 
 .cards {
@@ -253,111 +664,30 @@ nav a {
     grid-template-columns: 1fr;
 }
 
+.form-container {
+    padding: 30px 22px;
+}
+
 }
 
 @media (max-width: 480px) {
 
+.hero h1 {
+    font-size: 32px;
+}
+
 .cards {
     grid-template-columns: 1fr;
 }
-  
+
+.dashboard,
+.features {
+    padding-left: 5%;
+    padding-right: 5%;
 }
-/* ADD PLANT FORM */
 
 .form-section {
-padding: 60px 8%;
-
-min-height: 600px;
-
-display: flex;
-justify-content: center;
-align-items: center;
-
+    padding: 40px 5%;
 }
 
-.form-container {
-background: white;
-
-width: 100%;
-max-width: 600px;
-
-padding: 40px;
-
-border-radius: 15px;
-
-box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-
-}
-
-.form-container h2 {
-text-align: center;
-
-margin-bottom: 10px;
-
-}
-
-.form-description {
-text-align: center;
-
-margin-bottom: 30px;
-
-color: #666;
-
-}
-
-.form-container label {
-display: block;
-
-margin-top: 18px;
-margin-bottom: 7px;
-
-font-weight: bold;
-
-}
-
-.form-container input,
-.form-container select {
-width: 100%;
-
-padding: 13px;
-
-border: 1px solid #ccc;
-
-border-radius: 7px;
-
-font-size: 15px;
-
-}
-
-.form-container input:focus,
-.form-container select:focus {
-outline: none;
-
-border: 2px solid #2f6b3f;
-
-}
-
-.submit-button {
-width: 100%;
-
-margin-top: 30px;
-
-padding: 14px;
-
-border: none;
-
-border-radius: 8px;
-
-background: #2f6b3f;
-
-color: white;
-
-font-size: 16px;
-
-cursor: pointer;
-
-}
-
-.submit-button:hover {
-background: #245430;
 }
