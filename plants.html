@@ -1,58 +1,51 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Plants | Live Plant Maintenance Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<body>
 
-<title>My Plants</title>
+<header>
+    <div class="logo">🌿 Live Plant Maintenance Portal</div>
 
-<link rel="stylesheet" href="style.css">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="plants.html">Plants</a>
+        <a href="maintenance.html">Maintenance</a>
+    </nav>
+</header>
 
-</head><body><header><div class="logo">
-    🌱 PlantCare
-</div>
+<section class="page-hero">
+    <h1>🌸 My Plants</h1>
+    <p>Keep track of your plants and their daily care needs.</p>
+</section>
 
-<nav>
-    <a href="index.html">🏠 Home</a>
-    <a href="plants.html">🌿 Plants</a>
-    <a href="maintenance.html">📅 Maintenance</a>
-</nav>
+<main class="container">
 
-</header><section class="dashboard"><h2>🌿 My Plants</h2>
+    <div class="page-actions">
+        <a href="add-plant.html" class="btn">➕ Add New Plant</a>
+    </div>
 
+    <div id="plantList" class="plant-grid"></div>
 
-<div style="text-align:center; margin-bottom:30px;">
+    <div id="noPlants" class="empty-message">
+        <div class="empty-icon">🪴</div>
+        <h2>No Plants Added Yet</h2>
+        <p>Start your plant collection by adding your first plant.</p>
+        <a href="add-plant.html" class="btn">🌱 Add Your First Plant</a>
+    </div>
 
-    <a href="add-plant.html" class="button">
-        ➕ Add New Plant
-    </a>
+</main>
 
-</div>
+<footer>
+    <p>🌿 Live Plant Maintenance Portal © 2026</p>
+</footer>
 
+<script src="script.js"></script>
 
-<div id="plantList" class="feature-grid">
-
-    <!-- Plants will appear here -->
-
-</div>
-
-
-<div id="noPlants"
-     style="text-align:center; display:none;">
-
-    <p>
-        🌱 No plants have been added yet.
-    </p>
-
-    <br>
-
-    <a href="add-plant.html" class="button">
-        Add Your First Plant
-    </a>
-
-</div>
-
-</section><footer><p>
-    © 2026 Live Plant Maintenance Portal
-</p>
-
-</footer><script src="script.js"></script></body></html>
+</body>
+</html>
