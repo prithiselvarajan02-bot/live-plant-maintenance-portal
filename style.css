@@ -24,6 +24,107 @@ color: #304536;
 min-height: 100vh;
 
 }
+/* =========================================
+   BEAUTIFUL BOTANICAL PLANT CARDS
+========================================= */
+
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.plant-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 25px;
+    border: 1px solid #dce8d8;
+    box-shadow: 0 8px 25px rgba(60, 90, 60, 0.10);
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.plant-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(60, 90, 60, 0.16);
+}
+
+.plant-card::before {
+    content: "🌿";
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 45px;
+    opacity: 0.15;
+}
+
+.plant-card h3 {
+    color: #315c3a;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.plant-card p {
+    color: #596759;
+    margin: 9px 0;
+    line-height: 1.5;
+}
+
+.plant-card strong {
+    color: #315c3a;
+}
+
+.plant-status {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: #e3f1df;
+    color: #35633b;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 25px;
+    margin-top: 30px;
+    border: 1px dashed #b8cdb2;
+}
+
+.empty-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.empty-message h2 {
+    color: #315c3a;
+    margin-bottom: 10px;
+}
+
+.empty-message p {
+    color: #687568;
+    margin-bottom: 20px;
+}
+
+.page-actions {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .plant-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-actions {
+        text-align: center;
+    }
+}
 
 /* =========================================
 HEADER
