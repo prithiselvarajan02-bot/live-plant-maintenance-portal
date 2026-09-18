@@ -1,3 +1,7 @@
+/* ================================
+ADD PLANT
+================================ */
+
 const plantForm = document.getElementById("plantForm");
 
 if (plantForm) {
@@ -9,17 +13,25 @@ plantForm.addEventListener("submit", function(event) {
 
     const plant = {
 
-        name: document.getElementById("plantName").value,
+        id: Date.now(),
 
-        type: document.getElementById("plantType").value,
+        name:
+            document.getElementById("plantName").value,
 
-        location: document.getElementById("location").value,
+        type:
+            document.getElementById("plantType").value,
 
-        watering: document.getElementById("watering").value,
+        location:
+            document.getElementById("location").value,
 
-        sunlight: document.getElementById("sunlight").value,
+        watering:
+            document.getElementById("watering").value,
 
-        status: document.getElementById("status").value
+        sunlight:
+            document.getElementById("sunlight").value,
+
+        status:
+            document.getElementById("status").value
 
     };
 
@@ -46,5 +58,77 @@ plantForm.addEventListener("submit", function(event) {
     window.location.href = "plants.html";
 
 });
+
+}
+
+/* ================================
+DISPLAY PLANTS
+================================ */
+
+const plantList =
+document.getElementById("plantList");
+
+const noPlants =
+document.getElementById("noPlants");
+
+if (plantList) {
+
+const plants =
+    JSON.parse(localStorage.getItem("plants")) || [];
+
+
+if (plants.length === 0) {
+
+    noPlants.style.display = "block";
+
+} else {
+
+    plants.forEach(function(plant) {
+
+
+        const plantCard =
+            document.createElement("div");
+
+
+        plantCard.className = "feature";
+
+
+        plantCard.innerHTML = `
+
+            <h3>🌱 ${plant.name}</h3>
+
+            <p>
+                <strong>Plant Type:</strong>
+                ${plant.type}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                ${plant.location}
+            </p>
+
+            <p>
+                <strong>Watering:</strong>
+                ${plant.watering}
+            </p>
+
+            <p>
+                <strong>Sunlight:</strong>
+                ${plant.sunlight}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                ${plant.status}
+            </p>
+
+        `;
+
+
+        plantList.appendChild(plantCard);
+
+    });
+
+}
 
 }
