@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Add New Plant</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head><body><header><div class="logo">
+    🌱 PlantCare
+</div>
+
+<nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="plants.html">🌿 Plants</a>
+    <a href="maintenance.html">📅 Maintenance</a>
+</nav>
+
+</header><section class="form-section"><div class="form-container">
+
+    <h2>🌱 Add New Plant</h2>
+
+    <p class="form-description">
+        Enter the details of your plant below.
+    </p>
+
+
+    <form id="plantForm">
+
+        <label for="plantName">
+            Plant Name
+        </label>
+
+        <input
+            type="text"
+            id="plantName"
+            placeholder="Example: Aloe Vera"
+            required
+        >
+
+
+        <label for="plantType">
+            Plant Type
+        </label>
+
+        <input
+            type="text"
+            id="plantType"
+            placeholder="Example: Succulent"
+            required
+        >
+
+
+        <label for="location">
+            Location
+        </label>
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Example: Living Room"
+            required
+        >
+
+
+        <label for="watering">
+            Watering Frequency
+        </label>
+
+        <select id="watering" required>
+
+            <option value="">
+                Select frequency
+            </option>
+
+            <option value="Every day">
+                Every day
+            </option>
+
+            <option value="Every 2 days">
+                Every 2 days
+            </option>
+
+            <option value="Twice a week">
+                Twice a week
+            </option>
+
+            <option value="Once a week">
+                Once a week
+            </option>
+
+            <option value="Every 10 days">
+                Every 10 days
+            </option>
+
+        </select>
+
+
+        <label for="sunlight">
+            Sunlight Requirement
+        </label>
+
+        <select id="sunlight" required>
+
+            <option value="">
+                Select sunlight
+            </option>
+
+            <option value="Full sunlight">
+                Full sunlight
+            </option>
+
+            <option value="Partial sunlight">
+                Partial sunlight
+            </option>
+
+            <option value="Indirect sunlight">
+                Indirect sunlight
+            </option>
+
+            <option value="Low sunlight">
+                Low sunlight
+            </option>
+
+        </select>
+
+
+        <label for="status">
+            Plant Status
+        </label>
+
+        <select id="status" required>
+
+            <option value="Healthy">
+                Healthy
+            </option>
+
+            <option value="Needs Water">
+                Needs Water
+            </option>
+
+            <option value="Needs Attention">
+                Needs Attention
+            </option>
+
+        </select>
+
+
+        <button
+            type="submit"
+            class="submit-button">
+
+            🌱 Add Plant
+
+        </button>
+
+    </form>
+
+</div>
+
+</section><footer><p>
+    © 2026 Live Plant Maintenance Portal
+</p>
+
+</footer><script src="script.js"></script></body></html>
