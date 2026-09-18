@@ -1,134 +1,179 @@
-/* ================================
-ADD PLANT
-================================ */
+// =========================================
+// LIVE PLANT MAINTENANCE PORTAL
+// Plant Management System
+// =========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+    displayPlants();
+});
+
+
+// =========================================
+// ADD PLANT
+// =========================================
 
 const plantForm = document.getElementById("plantForm");
 
 if (plantForm) {
 
-plantForm.addEventListener("submit", function(event) {
+    plantForm.addEventListener("submit", function (event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
+        const plant = {
+            id: Date.now(),
+            name: document.getElementById("plantName").value,
+            type: document.getElementById("plantType").value,
+            location: document.getElementById("location").value,
+            watering: document.getElementById("watering").value,
+            sunlight: document.getElementById("sunlight").value,
+            status: document.getElementById("status").value
+        };
 
-    const plant = {
+        let plants = JSON.parse(localStorage.getItem("plants")) || [];
 
-        id: Date.now(),
+        plants.push(plant);
 
-        name:
-            document.getElementById("plantName").value,
+        localStorage.setItem("plants", JSON.stringify(plants));
 
-        type:
-            document.getElementById("plantType").value,
+        alert("🌱 Plant added successfully!");
 
-        location:
-            document.getElementById("location").value,
-
-        watering:
-            document.getElementById("watering").value,
-
-        sunlight:
-            document.getElementById("sunlight").value,
-
-        status:
-            document.getElementById("status").value
-
-    };
-
-
-    let plants =
-        JSON.parse(localStorage.getItem("plants")) || [];
-
-
-    plants.push(plant);
-
-
-    localStorage.setItem(
-        "plants",
-        JSON.stringify(plants)
-    );
-
-
-    alert("🌱 Plant added successfully!");
-
-
-    plantForm.reset();
-
-
-    window.location.href = "plants.html";
-
-});
-
+        window.location.href = "plants.html";
+    });
 }
 
-/* ================================
-DISPLAY PLANTS
-================================ */
 
-const plantList =
-document.getElementById("plantList");
+// =========================================
+// DISPLAY PLANTS
+// =========================================
 
-const noPlants =
-document.getElementById("noPlants");
+function displayPlants() {
 
-if (plantList) {
+    const plantList = document.getElementById("plantList");
+    const noPlants = document.getElementById("noPlants");
 
-const plants =
-    JSON.parse(localStorage.getItem("plants")) || [];
+    if (!plantList) {
+        return;
+    }
+
+    let plants = JSON.parse(localStorage.getItem("plants")) || [];
+
+    plantList.innerHTML = "";
+
+    if (plants.length === 0) {
+
+        if (noPlants) {
+            noPlants.style.display = "block";
+        }
+
+        return;
+    }
+
+    if (noPlants) {
+        noPlants.style.display = "none";
+    }
 
 
-if (plants.length === 0) {
+    plants.forEach(function (plant) {
 
-    noPlants.style.display = "block";
+        const card = document.createElement("div");
 
-} else {
+        card.className = "plant-card";
 
-    plants.forEach(function(plant) {
+        card.innerHTML = `
+            <h3>🌿 ${plant.name}</h3>
 
+            <p><strong>🌱 Type:</strong> ${plant.type}</p>
 
-        const plantCard =
-            document.createElement("div");
+            <p><strong>📍 Location:</strong> ${plant.location}</p>
 
+            <p><strong>💧 Watering:</strong> ${plant.watering}</p>
 
-        plantCard.className = "feature";
+            <p><strong>☀️ Sunlight:</strong> ${plant.sunlight}</p>
 
+            <span class="plant-status">
+                🟢 ${plant.status}
+            </span>
 
-        plantCard.innerHTML = `
+            <div class="plant-actions">
 
-            <h3>🌱 ${plant.name}</h3>
+                <button onclick="editPlant(${plant.id})" class="edit-btn">
+                    ✏️ Edit
+                </button>
 
-            <p>
-                <strong>Plant Type:</strong>
-                ${plant.type}
-            </p>
+                <button onclick="deletePlant(${plant.id})" class="delete-btn">
+                    🗑️ Delete
+                </button>
 
-            <p>
-                <strong>Location:</strong>
-                ${plant.location}
-            </p>
-
-            <p>
-                <strong>Watering:</strong>
-                ${plant.watering}
-            </p>
-
-            <p>
-                <strong>Sunlight:</strong>
-                ${plant.sunlight}
-            </p>
-
-            <p>
-                <strong>Status:</strong>
-                ${plant.status}
-            </p>
-
+            </div>
         `;
 
-
-        plantList.appendChild(plantCard);
+        plantList.appendChild(card);
 
     });
-
 }
 
+
+// =========================================
+// DELETE PLANT
+// =========================================
+
+function deletePlant(id) {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this plant?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    let plants = JSON.parse(localStorage.getItem("plants")) || [];
+
+    plants = plants.filter(function (plant) {
+        return plant.id !== id;
+    });
+
+    localStorage.setItem("plants", JSON.stringify(plants));
+
+    displayPlants();
+}
+
+
+// =========================================
+// EDIT PLANT
+// =========================================
+
+function editPlant(id) {
+
+    let plants = JSON.parse(localStorage.getItem("plants")) || [];
+
+    const plant = plants.find(function (plant) {
+        return plant.id === id;
+    });
+
+    if (!plant) {
+        return;
+    }
+
+    const newName = prompt("🌿 Plant Name:", plant.name);
+
+    if (newName === null) {
+        return;
+    }
+
+    const newLocation = prompt("📍 Location:", plant.location);
+
+    if (newLocation === null) {
+        return;
+    }
+
+    plant.name = newName;
+    plant.location = newLocation;
+
+    localStorage.setItem("plants", JSON.stringify(plants));
+
+    displayPlants();
+
+    alert("🌱 Plant updated successfully!");
 }
